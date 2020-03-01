@@ -43,7 +43,8 @@ More details in [this file](src/Solvers/RecursiveSolver.cpp).
 1.1.1. Put emptyCell := linear coordinate of this cell (0..80)
 1.2. Else:
 1.2.1. Break.
-1.3. Put values := candidates\[emptyCell\] - reference to candidates for emptyCell (create empty vector if one doesn't exist).
+1.3. Put values := candidates\[emptyCell\] - reference to candidates for 
+     emptyCell (create empty vector if one doesn't exist).
 1.3. Fill values with random permutation of 0..9.
 1.3. Define function tryCandidates(values: reference to vector\<int\>, pos: int) returning bool:
 1.3.1. While values is not empty:
