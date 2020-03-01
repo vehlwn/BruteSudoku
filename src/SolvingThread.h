@@ -7,8 +7,7 @@
 #include <QThread>
 #include <memory>
 
-namespace vehlwn
-{
+namespace vehlwn {
 class SolvingThread : public QThread
 {
     Q_OBJECT

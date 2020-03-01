@@ -5,8 +5,7 @@
 #include <array>
 #include <string>
 
-namespace vehlwn
-{
+namespace vehlwn {
 // WIDTH**2 table with numbers.
 class SudokuTable
 {

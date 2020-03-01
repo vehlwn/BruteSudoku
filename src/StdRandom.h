@@ -3,8 +3,7 @@
 #include <random>
 #include <type_traits>
 
-namespace vehlwn
-{
+namespace vehlwn {
 class StdRandom
 {
 public:

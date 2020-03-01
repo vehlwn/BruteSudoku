@@ -3,8 +3,7 @@
 #include <chrono>
 #include <thread>
 
-namespace
-{
+namespace {
 using Sed_t = decltype(vehlwn::StdRandom::gen)::result_type;
 const auto seed = [] {
     static const auto rdSed = std::random_device{}();
@@ -17,7 +16,6 @@ const auto seed = [] {
 };
 } // namespace
 
-namespace vehlwn
-{
+namespace vehlwn {
 thread_local std::mt19937 StdRandom::gen{seed()};
 }
