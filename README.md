@@ -1,5 +1,7 @@
 # BruteSudoku
 
+![progress animation](examples/progress.gif)
+
 This program solve 9x9 [sudoku](https://en.wikipedia.org/wiki/Sudoku) problem using recursive descent ([backtracking](https://en.wikipedia.org/wiki/Sudoku_solving_algorithms#Sudoku_brute_force)) with two algorithms: iterative and recursive. Candidates for each cell are chosen randomly, so for one table it can find several solutions. Start cell is chosen from the most filled row to discard as much as possible invalid candidates at the beginning of an algorithm.
 
 The program is written in C++17 and depends on [Qt](https://www.qt.io/offline-installers) external libraries for interface and signals/slots to communicate async algorithm with main window.
