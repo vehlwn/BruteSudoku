@@ -27,7 +27,7 @@ private:
     std::size_t m_pos;
 };
 
-// Base class for invalid gidit in row, column, square.
+// Base class for invalid digit in row, column, square.
 class SudokuTableError : public std::exception
 {
 public:
