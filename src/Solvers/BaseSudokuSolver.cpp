@@ -75,8 +75,8 @@ std::pair<std::size_t, bool> BaseSudokuSolver::getEmptyCell(const std::size_t st
 
 std::vector<int> BaseSudokuSolver::genCandidates()
 {
-    std::vector<int> ret{
-        SudokuTable::VALID_DIGITS.begin(), SudokuTable::VALID_DIGITS.end()};
+    std::vector<int> ret(
+        SudokuTable::VALID_DIGITS.begin(), SudokuTable::VALID_DIGITS.end());
     std::shuffle(ret.begin(), ret.end(), StdRandom::gen);
     return ret;
 }

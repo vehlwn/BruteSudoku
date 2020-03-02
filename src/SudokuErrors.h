@@ -31,7 +31,7 @@ private:
 class SudokuTableError : public std::exception
 {
 public:
-    SudokuTableError(const int row, const int col, const int val, const std::size_t pos)
+    SudokuTableError(const int row, const int col, const int val, const int pos)
         : m_row{row}
         , m_col{col}
         , m_val{val}
@@ -50,23 +50,23 @@ public:
     {
         return m_val;
     }
-    std::size_t pos() const noexcept
+    int pos() const noexcept
     {
         return m_pos;
     }
 
 private:
-    int         m_row;
-    int         m_col;
-    int         m_val;
-    std::size_t m_pos;
+    int m_row;
+    int m_col;
+    int m_val;
+    int m_pos;
 };
 
 // Error digit in a row.
 class SudokuRowError : public SudokuTableError
 {
 public:
-    SudokuRowError(const int row, const int col, const int val, const std::size_t pos)
+    SudokuRowError(const int row, const int col, const int val, const int pos)
         : SudokuTableError{row, col, val, pos}
     {
     }
@@ -80,7 +80,7 @@ public:
 class SudokuColumnError : public SudokuTableError
 {
 public:
-    SudokuColumnError(const int row, const int col, const int val, const std::size_t pos)
+    SudokuColumnError(const int row, const int col, const int val, const int pos)
         : SudokuTableError{row, col, val, pos}
     {
     }
@@ -94,7 +94,7 @@ public:
 class SudokuSquareError : public SudokuTableError
 {
 public:
-    SudokuSquareError(const int row, const int col, const int val, const std::size_t pos)
+    SudokuSquareError(const int row, const int col, const int val, const int pos)
         : SudokuTableError{row, col, val, pos}
     {
     }

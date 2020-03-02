@@ -37,13 +37,13 @@ void SudokuTable::parse(const std::string_view s)
         {
             const int num = s[pos] - '0';
             if(!std::binary_search(VALID_DIGITS.begin(), VALID_DIGITS.end(), num))
-                throw SudokuParserError("Illegal character '"s + s[pos] + "'", pos);
+                throw SudokuParserError{"Illegal character '"s + s[pos] + "'", pos};
             m_grid[i] = num;
             m_parsedPositions[i] = pos;
             i++;
         }
         else
-            throw SudokuParserError("Illegal character '"s + s[pos] + "'", pos);
+            throw SudokuParserError{"Illegal character '"s + s[pos] + "'", pos};
     }
     verifyAll(true);
 }
@@ -115,7 +115,7 @@ int SudokuTable::operator()(const std::size_t idx, const std::size_t jdx) const
     return m_grid[idx * WIDTH + jdx];
 }
 
-bool SudokuTable::isLegal(const std::size_t pos, const int val, const bool doRaise) const
+bool SudokuTable::isLegal(const int pos, const int val, const bool doRaise) const
 {
     const auto row = pos / WIDTH;
     const auto col = pos % WIDTH;
@@ -131,52 +131,52 @@ bool SudokuTable::verifyAll(const bool doRaise) const
     return true;
 }
 bool SudokuTable::isRowOk(
-    const std::size_t row, const std::size_t col, const int val, const bool doRaise) const
+    const int row, const int col, const int val, const bool doRaise) const
 {
-    for(std::size_t i = 0; i != WIDTH; i++)
+    for(int i = 0; i != WIDTH; i++)
     {
         const auto num = (*this)(row, i);
         if(i != col && num == val && num != EMPTY_NUM)
         {
             if(doRaise)
-                throw SudokuRowError(
-                    row + 1, col + 1, num, m_parsedPositions[row * WIDTH + col]);
+                throw SudokuRowError{
+                    row + 1, col + 1, num, m_parsedPositions[row * WIDTH + col]};
             return false;
         }
     }
     return true;
 }
 bool SudokuTable::isColOk(
-    const std::size_t row, const std::size_t col, const int val, const bool doRaise) const
+    const int row, const int col, const int val, const bool doRaise) const
 {
-    for(std::size_t i = 0; i != WIDTH; i++)
+    for(int i = 0; i != WIDTH; i++)
     {
         const auto num = (*this)(i, col);
         if(i != row && num == val && num != EMPTY_NUM)
         {
             if(doRaise)
-                throw SudokuColumnError(
-                    row + 1, col + 1, num, m_parsedPositions[row * WIDTH + col]);
+                throw SudokuColumnError{
+                    row + 1, col + 1, num, m_parsedPositions[row * WIDTH + col]};
             return false;
         }
     }
     return true;
 }
 bool SudokuTable::isSqrOk(
-    const std::size_t row, const std::size_t col, const int val, const bool doRaise) const
+    const int row, const int col, const int val, const bool doRaise) const
 {
-    const auto row_corner = row / BLOCK_WIDTH * BLOCK_WIDTH;
-    const auto col_corner = col / BLOCK_WIDTH * BLOCK_WIDTH;
+    const int row_corner = row / BLOCK_WIDTH * BLOCK_WIDTH;
+    const int col_corner = col / BLOCK_WIDTH * BLOCK_WIDTH;
 
-    for(std::size_t i = row_corner; i != row_corner + BLOCK_WIDTH; i++)
-        for(std::size_t j = col_corner; j != col_corner + BLOCK_WIDTH; j++)
+    for(int i = row_corner; i != row_corner + BLOCK_WIDTH; i++)
+        for(int j = col_corner; j != col_corner + BLOCK_WIDTH; j++)
         {
             const auto num = (*this)(i, j);
             if((i != row || j != col) && num == val && num != EMPTY_NUM)
             {
                 if(doRaise)
-                    throw SudokuSquareError(
-                        row + 1, col + 1, num, m_parsedPositions[row * WIDTH + col]);
+                    throw SudokuSquareError{
+                        row + 1, col + 1, num, m_parsedPositions[row * WIDTH + col]};
                 return false;
             }
         }
