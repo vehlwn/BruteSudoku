@@ -26,6 +26,8 @@ private slots:
     void on_pushButtonClear_clicked();
     void on_actionSaveSolution_triggered();
 
+    void on_actionSolutionTimeChart_triggered();
+
 private:
     std::unique_ptr<vehlwn::Solvers::BaseSudokuSolver> getCheckedSolver() const;
     void                                               clear();
