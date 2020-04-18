@@ -90,7 +90,7 @@ try
     // Read table from a file.
     m_solvingThread->stop();
     static QString oldFileName;
-    const QString  fileName = QFileDialog::getOpenFileName(
+    const QString fileName = QFileDialog::getOpenFileName(
         this, "Load table", oldFileName, "Text files (*.txt);;All files (*.*)");
     if(fileName.isEmpty())
         return;
@@ -103,7 +103,7 @@ try
     std::string s;
     {
         std::vector<char> buf(1024 * 1024);
-        const qint64      num = file.read(buf.data(), buf.size());
+        const qint64 num = file.read(buf.data(), buf.size());
         if(-1 == num)
             throw std::runtime_error("Cannot read " + fileName.toStdString());
         s = {buf.begin(), buf.end()};
@@ -198,7 +198,7 @@ try
 
     // Save.
     static QString oldFielName = "solution";
-    const QString  fileName = QFileDialog::getSaveFileName(
+    const QString fileName = QFileDialog::getSaveFileName(
         this, "Save solution", oldFielName, "Text files (*.txt);;All files (*.*)");
     if(fileName.isEmpty())
         return;
@@ -208,7 +208,7 @@ try
     if(!file.open(QIODevice::WriteOnly | QIODevice::Text))
         throw std::runtime_error("Cannot open " + fileName.toStdString());
     const std::string s = m_solvedTable.toString(SudokuTable::Compact);
-    const qint64      num = file.write(s.data(), s.size());
+    const qint64 num = file.write(s.data(), s.size());
     if(-1 == num)
         throw std::runtime_error("Cannot write to " + fileName.toStdString());
 }

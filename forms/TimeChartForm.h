@@ -27,6 +27,6 @@ private slots:
     void on_pushButtonClear_clicked();
 
 private:
-    Ui::TimeChartForm*      ui{};
+    Ui::TimeChartForm* ui{};
     LinearChartWithAverage* m_chart{};
 };
