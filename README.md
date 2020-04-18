@@ -75,7 +75,7 @@ More details in [this file](src/Solvers/IterativeSolver.cpp).
 
 ## Prebuild binaries
 
-- Windows 32 bit: zip [file](https://drive.google.com/uc?id=1Md0gSTGg0qKagAYGSEMI7P8AUa9JIWyL), PGP [signature](https://drive.google.com/uc?id=1o_fl3EIaywlpjoTEKdlR9rM_KonpAM15).
+- Windows 7 32 bit: zip [file](https://drive.google.com/uc?id=1gW-QY9F7X9a_4FqLDycacUx922LX3WSG), PGP [signature](https://drive.google.com/uc?id=1J4Go8E90DJO0krAdErjxwyom21efpntC).
 
 My PGP key: https://pastebin.com/raw/MKP7SwJX
 
