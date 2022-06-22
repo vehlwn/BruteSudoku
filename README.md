@@ -18,51 +18,55 @@ Variables:
 
 ### Resursive pseudocode
 
+```
 1. Define function solveRecursive(emptyCell: int):
-  1. If there is any empty sell:
-    1. Modify emptyCell := linear coordinate of this cell (0..80).
-  1. Else:
-    1. Return True.
-  1. For each val in \[random permutation of 0..9\]:
-    1. If val at table\[pos\] is valid:
-      1. If solveRecursive(emptyCell):
-        1. Return True.
-      1. Else:
-        1. table\[tmpPos\] := SudokuTable::EMPTY_NUM.
-  1. Return False.
+1.1. If there is any empty sell:
+1.1.1. Modify emptyCell := linear coordinate of this cell (0..80).
+1.2. Else:
+1.2.1. Return True.
+1.3. For each val in \[random permutation of 0..9\]:
+1.3.1. If val at table\[pos\] is valid:
+1.3.1.1. If solveRecursive(emptyCell):
+1.3.1.1.1. Return True.
+1.3.1.2. Else:
+1.3.1.2.1. table\[tmpPos\] := SudokuTable::EMPTY_NUM.
+1.4. Return False.
+```
 
 More details in [this file](src/Solvers/RecursiveSolver.cpp).
 
 ### Iterative pseudocode
 
+```
 1. While True:
-  1. If there is any empty sell:
-    1. Put emptyCell := linear coordinate of this cell (0..80)
-  1. Else:
-    1. Break.
-  1. Put values := candidates\[emptyCell\] - reference to candidates for emptyCell (create empty vector if one doesn't exist).
-  1. Fill values with random permutation of 0..9.
-  1. Define function tryCandidates(values: reference to vector\<int\>, pos: int) returning bool:
-    1. While values is not empty:
-      1. Put val := values.pop().
-      1. If val at table\[pos\] is valid:
-        1. stas.push(pos).
-        1. Return True.
-    1. Return False.
-  1. If tryCandidates(values, emptyCell):
-    1. Continue.
-  \# At pos none of digits is allowed. Unwind stack and try change previous values.
-  1. While stack is not empty:
-    1. tmpPos := stas.pop().
-    1. tmpValues := candidates\[tmpPos\].
-    1. If tryCandidates(tmpValues, tmpPos):
-      1. Break.
-    1. Else:
-      1. table\[tmpPos\] := SudokuTable::EMPTY_NUM.
-  1. If stack is empty:
-    1. throw std::runtime_error("No solution").
-    \# If initial table filled correctly there always is a solution.
-1. Return table
+1.1. If there is any empty sell:
+1.1.1. Put emptyCell := linear coordinate of this cell (0..80)
+1.2. Else:
+1.2.1. Break.
+1.3. Put values := candidates\[emptyCell\] - reference to candidates for emptyCell (create empty vector if one doesn't exist).
+1.3. Fill values with random permutation of 0..9.
+1.3. Define function tryCandidates(values: reference to vector\<int\>, pos: int) returning bool:
+1.3.1. While values is not empty:
+1.3.1.1. Put val := values.pop().
+1.3.1.2. If val at table\[pos\] is valid:
+1.3.1.2.1. stas.push(pos).
+1.3.1.2.1. Return True.
+1.3.2. Return False.
+1.4. If tryCandidates(values, emptyCell):
+1.4.1. Continue.
+     // At pos none of digits is allowed. Unwind stack and try change previous values.
+1.5. While stack is not empty:
+1.5.1. tmpPos := stas.pop().
+1.5.1. tmpValues := candidates\[tmpPos\].
+1.5.1. If tryCandidates(tmpValues, tmpPos):
+1.5.1.1. Break.
+1.5.1. Else:
+1.5.1.1. table\[tmpPos\] := SudokuTable::EMPTY_NUM.
+1.6. If stack is empty:
+       // If initial table filled correctly there always is a solution.
+1.6.1. throw std::runtime_error("No solution").
+2. Return table
+```
 
 More details in [this file](src/Solvers/IterativeSolver.cpp).
 
