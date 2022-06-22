@@ -10,9 +10,8 @@ The program is written in C++17 and depends on [Qt](https://www.qt.io/offline-in
 
 ```bash
 $ meson setup build --buildtype release
-$ cd build
-$ meson compile
-$ ./BruteSudoku
+$ meson compile -C build
+$ ./build/BruteSudoku
 ```
 
 ## Algorithm
