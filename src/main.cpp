@@ -10,7 +10,7 @@ int main(int argc, char* argv[])
     qRegisterMetaType<vehlwn::SudokuTable>("SudokuTable");
     qRegisterMetaType<std::uintmax_t>("std::uintmax_t");
     QApplication a(argc, argv);
-    MainWindow   w;
+    MainWindow w;
     w.show();
     return a.exec();
 }

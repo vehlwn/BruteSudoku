@@ -22,7 +22,7 @@ signals:
 
 private:
     QLineSeries *m_dataSeries{}, *m_averageSeries{};
-    QValueAxis * m_axisX{}, *m_axisY{};
-    double       m_minX{}, m_maxX{}, m_minY{}, m_maxY{};
-    double       m_accumulatedAverage{};
+    QValueAxis *m_axisX{}, *m_axisY{};
+    double m_minX{}, m_maxX{}, m_minY{}, m_maxY{};
+    double m_accumulatedAverage{};
 };

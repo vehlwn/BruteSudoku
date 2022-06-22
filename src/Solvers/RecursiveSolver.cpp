@@ -28,7 +28,7 @@ bool RecursiveSolver::solveRecursive(std::size_t emptyCell)
             {
                 // Prevent flooding main thread with too many progress messages.
                 const QString s = QString::fromStdString(m_table.toString());
-                emit          progressTable(s);
+                emit progressTable(s);
                 m_t1 = t2;
             }
             if(solveRecursive(emptyCell))

@@ -30,9 +30,9 @@ private slots:
 
 private:
     std::unique_ptr<vehlwn::Solvers::BaseSudokuSolver> getCheckedSolver() const;
-    void                                               clear();
+    void clear();
 
-    Ui::MainWindow*        ui{};
-    vehlwn::SudokuTable    m_problemTable, m_solvedTable;
+    Ui::MainWindow* ui{};
+    vehlwn::SudokuTable m_problemTable, m_solvedTable;
     vehlwn::SolvingThread* m_solvingThread{};
 };

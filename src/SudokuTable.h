@@ -16,18 +16,18 @@ public:
         Indented
     };
     SudokuTable();
-    int         operator()(const std::size_t idx) const;
-    int         operator()(const std::size_t idx, const std::size_t jdx) const;
-    int&        operator()(const std::size_t idx);
-    int&        operator()(const std::size_t idx, const std::size_t jdx);
+    int operator()(const std::size_t idx) const;
+    int operator()(const std::size_t idx, const std::size_t jdx) const;
+    int& operator()(const std::size_t idx);
+    int& operator()(const std::size_t idx, const std::size_t jdx);
     std::string toString(const StringFormat format = Indented) const;
-    void        parse(const std::string_view s);
-    bool        trySet(const std::size_t emptyCell, const int val);
-    void        reset();
+    void parse(const std::string_view s);
+    bool trySet(const std::size_t emptyCell, const int val);
+    void reset();
 
-    static constexpr int        EMPTY_NUM = 0;
-    static constexpr int        WIDTH = 9;
-    static constexpr int        SIZE = WIDTH * WIDTH;
+    static constexpr int EMPTY_NUM = 0;
+    static constexpr int WIDTH = 9;
+    static constexpr int SIZE = WIDTH * WIDTH;
     static constexpr std::array VALID_DIGITS = {1, 2, 3, 4, 5, 6, 7, 8, 9};
 
 private:
@@ -41,8 +41,8 @@ private:
         const int row, const int col, const int val, const bool doRaise = false) const;
 
     static constexpr char EMPTY_CHAR = '.';
-    static constexpr int  BLOCK_WIDTH = 3;
-    static constexpr int  NUN_BLOCKS = 3;
+    static constexpr int BLOCK_WIDTH = 3;
+    static constexpr int NUN_BLOCKS = 3;
     std::array<int, SIZE> m_grid;
     std::array<int, SIZE> m_parsedPositions;
 };

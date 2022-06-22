@@ -11,9 +11,9 @@ void IterativeSolver::solveImpl()
     m_t1 = std::chrono::steady_clock::now();
     using namespace std::literals;
 
-    std::size_t                     emptyCell = mostFilledRow() * SudokuTable::WIDTH;
+    std::size_t emptyCell = mostFilledRow() * SudokuTable::WIDTH;
     std::map<int, std::vector<int>> candidates;
-    std::stack<int>                 stas;
+    std::stack<int> stas;
     while(!m_stopped)
     {
         bool b;
@@ -34,7 +34,7 @@ void IterativeSolver::solveImpl()
                     {
                         // Prevent flooding main thread with too many progress messages.
                         const QString s = QString::fromStdString(m_table.toString());
-                        emit          progressTable(s);
+                        emit progressTable(s);
                         m_t1 = t2;
                     }
                     stas.push(pos);
