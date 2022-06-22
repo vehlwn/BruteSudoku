@@ -3,8 +3,7 @@
 #include <exception>
 #include <string>
 
-namespace vehlwn
-{
+namespace vehlwn {
 // Calss for syntax error in input string.
 class SudokuParserError : public std::exception
 {

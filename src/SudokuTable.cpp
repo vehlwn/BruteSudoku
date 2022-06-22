@@ -4,8 +4,7 @@
 #include <cctype>
 #include <sstream>
 
-namespace vehlwn
-{
+namespace vehlwn {
 SudokuTable::SudokuTable()
 {
     reset();

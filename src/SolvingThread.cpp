@@ -1,7 +1,6 @@
 #include "SolvingThread.h"
 
-namespace vehlwn
-{
+namespace vehlwn {
 SolvingThread::SolvingThread(QObject* parent)
     : base{parent}
 {
