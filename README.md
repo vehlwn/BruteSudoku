@@ -6,6 +6,16 @@ This program solve 9x9 [sudoku](https://en.wikipedia.org/wiki/Sudoku) problem us
 
 The program is written in C++17 and depends on [Qt](https://www.qt.io/offline-installers) external libraries for interface and signals/slots to communicate async algorithm with main window.
 
+## Build
+
+```bash
+$ mkdir build
+$ cd build
+$ cmake -GNinja .. -DCMAKE_BUILD_TYPE=Release
+$ cmake --build .
+
+```
+
 ## Algorithm
 
 Input:
