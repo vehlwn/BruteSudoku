@@ -1,5 +1,6 @@
 #include "MainWindow.h"
 
+#include "forms/TimeChartForm.h"
 #include "src/Solvers/IterativeSolver.h"
 #include "src/Solvers/RecursiveSolver.h"
 #include "src/SudokuErrors.h"
@@ -214,4 +215,20 @@ try
 catch(const std::exception& ex)
 {
     QMessageBox::critical(this, "Error", ex.what());
+}
+
+void MainWindow::on_actionSolutionTimeChart_triggered()
+{
+    static TimeChartForm* chartForm;
+    if(!chartForm)
+    {
+        chartForm = new TimeChartForm{this};
+        chartForm->setWindowFlags(Qt::Window);
+        connect(m_solvingThread, &SolvingThread::goodResult, chartForm,
+            [](const SudokuTable& solvedTable, std::uintmax_t nstime) {
+                (void)solvedTable;
+                emit chartForm->append(nstime / 1.e9);
+            });
+    }
+    chartForm->show();
 }

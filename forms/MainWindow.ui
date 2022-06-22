@@ -179,6 +179,7 @@
     </property>
     <addaction name="actionLoadTable"/>
     <addaction name="actionSaveSolution"/>
+    <addaction name="actionSolutionTimeChart"/>
     <addaction name="separator"/>
     <addaction name="actionExit"/>
    </widget>
@@ -212,6 +213,11 @@
   <action name="actionGrammar">
    <property name="text">
     <string>Grammar</string>
+   </property>
+  </action>
+  <action name="actionSolutionTimeChart">
+   <property name="text">
+    <string>Solution time chart...</string>
    </property>
   </action>
  </widget>
