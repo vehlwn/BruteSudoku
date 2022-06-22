@@ -23,7 +23,7 @@ bool RecursiveSolver::solveRecursive(std::size_t emptyCell)
     for(const auto val : genCandidates())
         if(m_table.trySet(emptyCell, val))
         {
-            auto t2 = std::chrono::steady_clock::now();
+            const auto t2 = std::chrono::steady_clock::now();
             if(t2 - m_t1 > PROGRESS_TABLE_DELAY)
             {
                 // Prevent flooding main thread with too many progress messages.

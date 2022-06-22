@@ -63,7 +63,7 @@ void IterativeSolver::solveImpl()
             }
         }
         if(stas.empty())
-            throw std::runtime_error("No solution");
+            throw std::runtime_error{"No solution"};
     }
     if(m_stopped)
         throw std::runtime_error{"Stopped"};
