@@ -83,12 +83,6 @@ More details in [this file](src/Solvers/RecursiveSolver.cpp).
 
 More details in [this file](src/Solvers/IterativeSolver.cpp).
 
-## Prebuild binaries
-
-- Windows 7 32 bit: zip [file](https://drive.google.com/uc?id=1gW-QY9F7X9a_4FqLDycacUx922LX3WSG), PGP [signature](https://drive.google.com/uc?id=1J4Go8E90DJO0krAdErjxwyom21efpntC).
-
-My PGP key: https://pastebin.com/raw/MKP7SwJX
-
 ## Examples
 ![example1](examples/example1.png)
 ![example2](examples/example2.png)
