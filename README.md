@@ -6,6 +6,15 @@ This program solve 9x9 [sudoku](https://en.wikipedia.org/wiki/Sudoku) problem us
 
 The program is written in C++17 and depends on [Qt](https://www.qt.io/offline-installers) external libraries for interface and signals/slots to communicate async algorithm with main window.
 
+## Build
+
+```bash
+$ meson setup build --buildtype release
+$ cd build
+$ meson compile
+$ ./BruteSudoku
+```
+
 ## Algorithm
 
 Input:
@@ -72,12 +81,6 @@ More details in [this file](src/Solvers/RecursiveSolver.cpp).
 ```
 
 More details in [this file](src/Solvers/IterativeSolver.cpp).
-
-## Prebuild binaries
-
-- Windows 7 32 bit: zip [file](https://drive.google.com/uc?id=1gW-QY9F7X9a_4FqLDycacUx922LX3WSG), PGP [signature](https://drive.google.com/uc?id=1J4Go8E90DJO0krAdErjxwyom21efpntC).
-
-My PGP key: https://pastebin.com/raw/MKP7SwJX
 
 ## Examples
 ![example1](examples/example1.png)
