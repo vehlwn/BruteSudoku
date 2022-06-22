@@ -18,7 +18,14 @@ void setPlainTextCursorAndFocus(QPlainTextEdit* const edit, const int pos)
     edit->setTextCursor(c);
     edit->setFocus();
 }
-
+/*
+void screenShotWidget(QWidget* w)
+{
+    QPixmap    pix = w->grab();
+    static int i;
+    pix.save(QString{"out-%1.png"}.arg(i++));
+}
+*/
 } // namespace
 
 using vehlwn::SolvingThread;
@@ -127,6 +134,7 @@ void MainWindow::clear()
     ui->plainTextEditProblem->setPlainText(
         QString::fromStdString(m_problemTable.toString(SudokuTable::Indented)));
     ui->plainTextEditSolved->clear();
+    ui->lineEditResult->clear();
 }
 
 void MainWindow::on_actionGrammar_triggered()
