@@ -7,10 +7,14 @@ qt5 = import('qt5')
 qt5_dep = dependency('qt5', modules: ['Widgets', 'Charts'])
 inc = include_directories('src', 'forms')
 qtprocessed = qt5.preprocess(
-  moc_headers: ['forms/MainWindow.h', 'forms/TimeChartForm.h', 'src/LinearChartWithAverage.h', 'src/SolvingThread.h', 'src/Solvers/BaseSudokuSolver.h'],
+  moc_headers: [
+    'forms/MainWindow.h',
+    'forms/TimeChartForm.h',
+    'src/LinearChartWithAverage.h',
+    'src/SolvingThread.h',
+    'src/Solvers/BaseSudokuSolver.h'],
   ui_files: ['forms/MainWindow.ui', 'forms/TimeChartForm.ui'],
   include_directories: inc)
-
 
 exe = executable(
   'BruteSudoku',
